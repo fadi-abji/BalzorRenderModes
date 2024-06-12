@@ -4,7 +4,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
-    .AddInteractiveServerComponents();// to active the interactiverenderservermode  
+    .AddInteractiveServerComponents()// to active the interactiverenderservermode  
+    .AddInteractiveWebAssemblyComponents();
 
 var app = builder.Build();
 
