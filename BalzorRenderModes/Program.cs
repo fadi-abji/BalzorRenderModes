@@ -1,4 +1,5 @@
 using BalzorRenderModes.Components;
+using BlazorRenderModes.Client.Controls;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +24,8 @@ app.UseStaticFiles();
 app.UseAntiforgery();
 
 app.MapRazorComponents<App>()
-    .AddInteractiveServerRenderMode(); // to active the interactiverenderservermode , then you go to the page and type this @rendermode InteractiveServer
+    .AddInteractiveServerRenderMode() // To active the interactiverenderservermode, then you go to the page and type this @rendermode InteractiveServer
+    .AddInteractiveWebAssemblyRenderMode()
+    .AddAdditionalAssemblies(typeof(RenderModeTest).Assembly); 
 
 app.Run();

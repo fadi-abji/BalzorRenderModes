@@ -1,5 +1,5 @@
 ﻿@page "/rendermode"
-@using BalzorRenderModes.Components.Controls
+@using BlazorRenderModes.Client.Controls
 @attribute [StreamRendering]
 @* you can added here to all page components then it will make all component inside it work on the selective render mode 
 @rendermode InteractiveServer *@
@@ -9,7 +9,17 @@
 <h2>Render Mode Page</h2>
 
 @* you can added here foreach component and select the render mode *@
-<RenderModeTest @rendermode="InteractiveServer"></RenderModeTest>
+@* <RenderModeTest @rendermode="InteractiveServer" /> *@
 
 @* don't work because because it dosent inclue the render mode and above was not included @rendermode directive *@
 @* <RenderModeTest></RenderModeTest> *@
+
+
+@* now after moving this component to client project, I would use both InteractiveWebAssembly(Use client project to render the component) and InteractiveAuto(use both WebAssembly at the start of rendering the component then move to InteractiveServer) *@
+
+@* test  WebAssembly render mode  *@
+@* <RenderModeTest @rendermode="InteractiveWebAssembly" /> *@ @* worked! *@
+
+
+<RenderModeTest @rendermode="InteractiveAuto" /> @* worked! first you see at the development mode, first servermode render then webassembly, and that because webassembly needs to download amount of data, and it takes some time, in this way it become faseter and look like download one time 
+ *@
