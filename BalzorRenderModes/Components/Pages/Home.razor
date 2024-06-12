@@ -1,0 +1,20 @@
+﻿@page "/"
+
+@rendermode InteractiveServer
+<PageTitle>Home</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<p>@value</p>
+<button @onclick="TestClick">Test Btn</button>
+
+@code{
+    private int value { get; set; } = 0;
+
+    private void TestClick(){
+        value++;
+    }
+}
+

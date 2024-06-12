@@ -1,0 +1,15 @@
+﻿@page "/rendermode"
+@using BalzorRenderModes.Components.Controls
+@attribute [StreamRendering]
+@* you can added here to all page components then it will make all component inside it work on the selective render mode 
+@rendermode InteractiveServer *@
+
+
+<PageTitle>RenderModePage</PageTitle>
+<h2>Render Mode Page</h2>
+
+@* you can added here foreach component and select the render mode *@
+<RenderModeTest @rendermode="InteractiveServer"></RenderModeTest>
+
+@* don't work because because it dosent inclue the render mode and above was not included @rendermode directive *@
+@* <RenderModeTest></RenderModeTest> *@
