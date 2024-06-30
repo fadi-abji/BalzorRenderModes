@@ -1,9 +1,11 @@
 ﻿@using BlazorRenderModes.Client.Api
+@using BlazorRenderModes.Client.Models
 <div class="p-3">
 
     <h3>RenderModeTest Component</h3>
 
-    <p>@counter</p>
+    <p>@obj.Value</p>
+    <p>@obj.Name</p>
     <button @onclick="TestClick">Test Btn</button>
 </div>
 
@@ -11,7 +13,7 @@
     [Inject]
     private CounterClientService counterClientService { get; set; }
 
-    private int counter { get; set; } = 0;
+    private Counter obj { get; set; }  = new Counter(){ Value = 0, Name = "Counter"};
 
     protected override Task OnInitializedAsync()
     {
@@ -20,8 +22,10 @@
 
     private async Task TestClick()
     {
-        counter = await counterClientService.Increment(counter);
+        obj = await counterClientService.Increment(obj);
         StateHasChanged();
     }
+
 }
+
 

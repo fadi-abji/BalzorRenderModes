@@ -18,7 +18,7 @@ builder.Services.AddScoped<ICounterService, CounterService>();
 // Register HttpClient
 builder.Services.AddHttpClient<CounterClientService>(client =>
 {
-    client.BaseAddress = new Uri("http://localhost:5273");
+    client.BaseAddress = new Uri("https://localhost:7281/");
 });
 
 

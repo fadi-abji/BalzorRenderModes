@@ -1,4 +1,6 @@
-﻿namespace BalzorRenderModes.Services
+﻿using BlazorRenderModes.Client.Models;
+
+namespace BalzorRenderModes.Services
 {
     public interface ICounterService
     {

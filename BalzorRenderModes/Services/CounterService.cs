@@ -1,4 +1,5 @@
-﻿using System.Runtime.CompilerServices;
+﻿using BlazorRenderModes.Client.Models;
+using System.Runtime.CompilerServices;
 
 namespace BalzorRenderModes.Services
 {
@@ -7,7 +8,7 @@ namespace BalzorRenderModes.Services
     {
         public int Increment(int counter)
         {
-            return ++counter; 
+            return ++counter;
         }
     }
 }
