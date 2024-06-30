@@ -1,17 +1,27 @@
-﻿<div class="p-3">
+﻿@using BlazorRenderModes.Client.Api
+<div class="p-3">
 
     <h3>RenderModeTest Component</h3>
 
-    <p>@value</p>
+    <p>@counter</p>
     <button @onclick="TestClick">Test Btn</button>
 </div>
 
 @code {
-    private int value { get; set; } = 0;
+    [Inject]
+    private CounterClientService counterClientService { get; set; }
 
-    private void TestClick()
+    private int counter { get; set; } = 0;
+
+    protected override Task OnInitializedAsync()
     {
-        value++;
+        return base.OnInitializedAsync();
+    }
+
+    private async Task TestClick()
+    {
+        counter = await counterClientService.Increment(counter);
+        StateHasChanged();
     }
 }
 
