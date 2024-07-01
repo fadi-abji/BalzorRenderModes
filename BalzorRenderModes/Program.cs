@@ -2,7 +2,6 @@ using BalzorRenderModes.Api;
 using BalzorRenderModes.Components;
 using BalzorRenderModes.Services;
 using BlazorRenderModes.Client.Controls;
-using BlazorRenderModes.Client.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,7 +15,6 @@ builder.Services.AddControllers();
 // Adding a service to comnicate with a controller
 builder.Services.AddScoped<ICounterService, CounterService>();
 
-builder.Services.AddScoped<CounterClientService>();
 
 builder.Services.AddHttpClient<ICounterApi, CounterApi>(client =>
 {

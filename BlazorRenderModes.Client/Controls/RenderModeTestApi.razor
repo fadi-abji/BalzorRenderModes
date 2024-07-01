@@ -1,6 +1,7 @@
 ﻿@using BalzorRenderModes.Api
 @using BlazorRenderModes.Client.Models
-@using BlazorRenderModes.Client.Services
+
+
 <div class="p-3">
 
     <h3>RenderModeTest Component</h3>
@@ -11,7 +12,7 @@
 
 @code {
     [Inject]
-    private CounterClientService counterClientService { get; set; }
+    private ICounterApi counterApi { get; set; }
 
     private int Counter { get; set; } = 0;
 
@@ -22,7 +23,7 @@
 
     private async Task TestClick()
     {
-        Counter = await counterClientService.Increment(Counter);
+        Counter = await counterApi.Increment(Counter);
         StateHasChanged();
     }
 }

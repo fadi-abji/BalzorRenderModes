@@ -1,5 +1,4 @@
 using BalzorRenderModes.Api;
-using BlazorRenderModes.Client.Services;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
 
@@ -10,6 +9,5 @@ builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.
 
 builder.Services.AddScoped<ICounterApi, CounterApi>();
 
-builder.Services.AddScoped<CounterClientService>();
 
 await builder.Build().RunAsync();
