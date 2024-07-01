@@ -10,17 +10,16 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()// to active the interactiverenderservermode  
     .AddInteractiveWebAssemblyComponents();
 
-
+// Adding Api Controller
 builder.Services.AddControllers();
-
+// Adding a service to comnicate with a controller
 builder.Services.AddScoped<ICounterService, CounterService>();
 
-// Register HttpClient
+// Register HttpClient, It has to be http client registerd with a specific Service in the Client project.
 builder.Services.AddHttpClient<CounterClientService>(client =>
 {
     client.BaseAddress = new Uri("https://localhost:7281/");
 });
-
 
 
 var app = builder.Build();
