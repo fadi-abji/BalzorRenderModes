@@ -10,13 +10,6 @@ namespace BlazorRenderModes.Client.Services
             this.counterApi = counterApi;
         }
 
-        //private readonly HttpClient httpClient;
-        //public CounterClientService(HttpClient httpClient, ICounterApi counterApi)
-        //{
-        //    this.counterApi = counterApi;
-        //    this.httpClient = httpClient;
-        //}
-
         public async  Task<int> Increment(int counter)
         {
             return await counterApi.Increment(counter);
