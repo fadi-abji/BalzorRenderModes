@@ -16,4 +16,8 @@
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BlazorRenderModes.Api\BlazorRenderModes.Api.csproj" />
+  </ItemGroup>
+
 </Project>

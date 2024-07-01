@@ -14,8 +14,4 @@
     <ProjectReference Include="..\BlazorRenderModes.Client\BlazorRenderModes.Client.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Api\" />
-  </ItemGroup>
-
 </Project>

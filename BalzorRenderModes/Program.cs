@@ -1,7 +1,8 @@
+using BalzorRenderModes.Api;
 using BalzorRenderModes.Components;
 using BalzorRenderModes.Services;
-using BlazorRenderModes.Client.Api;
 using BlazorRenderModes.Client.Controls;
+using BlazorRenderModes.Client.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,8 +16,14 @@ builder.Services.AddControllers();
 // Adding a service to comnicate with a controller
 builder.Services.AddScoped<ICounterService, CounterService>();
 
-// Register HttpClient, It has to be http client registerd with a specific Service in the Client project.
+
+// Register HttpClient
 builder.Services.AddHttpClient<CounterClientService>(client =>
+{
+    client.BaseAddress = new Uri("https://localhost:7281/");
+});
+
+builder.Services.AddHttpClient<ICounterApi, CounterApi>(client =>
 {
     client.BaseAddress = new Uri("https://localhost:7281/");
 });
@@ -43,6 +50,6 @@ app.UseAntiforgery();
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode() // To active the interactiverenderservermode, then you go to the page and type this @rendermode InteractiveServer
     .AddInteractiveWebAssemblyRenderMode()
-    .AddAdditionalAssemblies(typeof(RenderModeTest).Assembly);
+    .AddAdditionalAssemblies(typeof(RenderModeTestApi).Assembly);
 
 app.Run();
