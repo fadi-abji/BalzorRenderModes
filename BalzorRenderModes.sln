@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BalzorRenderModes", "Balzor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorRenderModes.Client", "BlazorRenderModes.Client\BlazorRenderModes.Client.csproj", "{EA193C32-735C-46E6-B978-BEF94AC424A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorRenderModes.Api", "BlazorRenderModes.Api\BlazorRenderModes.Api.csproj", "{8E4ED677-FD31-41A8-854A-45ED268CB079}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorRenderModes.Api", "BlazorRenderModes.Api\BlazorRenderModes.Api.csproj", "{8E4ED677-FD31-41A8-854A-45ED268CB079}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -14,12 +14,7 @@ builder.Services.AddRazorComponents()
 builder.Services.AddControllers();
 // Adding a service to comnicate with a controller
 builder.Services.AddScoped<ICounterService, CounterService>();
-
-
-builder.Services.AddHttpClient<ICounterApi, CounterApi>(client =>
-{
-    client.BaseAddress = new Uri("https://localhost:7281/");
-});
+builder.Services.AddScoped<ICounterApi, CounterServerSide>(); 
 
 var app = builder.Build();
 
