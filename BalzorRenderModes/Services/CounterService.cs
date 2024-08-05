@@ -1,5 +1,4 @@
-﻿using BlazorRenderModes.Client.Models;
-using System.Runtime.CompilerServices;
+﻿using System.Runtime.CompilerServices;
 
 namespace BalzorRenderModes.Services
 {

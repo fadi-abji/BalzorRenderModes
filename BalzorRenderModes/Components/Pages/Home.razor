@@ -1,6 +1,7 @@
 ﻿@page "/"
-
+@inject IJSRuntime JS
 @rendermode InteractiveServer
+
 <PageTitle>Home</PageTitle>
 
 <h1>Hello, world!</h1>
@@ -10,11 +11,51 @@ Welcome to your new app.
 <p>@value</p>
 <button @onclick="TestClick">Test Btn</button>
 
+<br /><br />
+<button class="btn btn-primary" @onclick="ChangeFocus">Click me to change focus</button>
+<input @ref=InputField @onfocus="HandleFocus" @onkeypress="ProcessKeyPress" @onkeypress:preventDefault value="@data" />
+
+  
 @code{
     private int value { get; set; } = 0;
 
-    private void TestClick(){
+    private async Task TestClick(MouseEventArgs e)
+    {
+        if (e.CtrlKey) 
+        {
+            await Task.Delay(1000);
+            value += 5;
+        }
+        else
+        {
         value++;
+        }
     }
+
+        private ElementReference InputField;
+
+        private string data;
+
+        private async Task ChangeFocus()
+        {
+            await InputField.FocusAsync();
+        }
+
+        private async Task HandleFocus()
+        {
+            data = "Received focus";
+        }
+
+        private async Task ProcessKeyPress(KeyboardEventArgs e)
+        {
+            if (e.Key == "@")
+            {
+                await JS.InvokeVoidAsync("alert", "You pressed @");
+            }
+            else
+            {
+                data += e.Key.ToUpper();
+            }
+        }
 }
 
